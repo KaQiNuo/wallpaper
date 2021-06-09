@@ -6,7 +6,7 @@ name: Java CI with Maven
 on:
   schedule:
     # 定时执行，Runs at 17:00 UTC every day
-    - cron:  '0 15 * * *'
+    - cron:  '30 17 * * *'
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Run Java Application
-      run: java -jar target/bing-wallpaper-jar-with-dependencies.jar
+      run: java -jar target/wallpaper-jar-with-dependencies.jar
     - name: Commit files
       run: |
          git config --local user.email "xinhai1999@outlook.com"
