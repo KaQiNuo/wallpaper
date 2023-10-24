@@ -1,4 +1,6 @@
 ## Bing Wallpaper
+2023-10-25 | [Füzér Castle in the Zemplén Mountains, Hungary (© ZGPhotography/Alamy)](https://cn.bing.com/th?id=OHR.FuzerCastle_EN-US9918819618_UHD.jpg) 
+
 2023-10-23 | [Astoria-Megler Bridge on the Columbia River, Astoria, Oregon (© Dan Mihai/Getty Images)](https://cn.bing.com/th?id=OHR.AstoriaBridge_EN-US9518437970_UHD.jpg) 
 
 2023-10-22 | [Reliefs in the ancient Persian city of Persepolis, Iran (© Ozbalci/Getty Images)](https://cn.bing.com/th?id=OHR.PersepolisRelief_EN-US9435779068_UHD.jpg) 
