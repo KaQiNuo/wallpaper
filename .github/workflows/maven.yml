@@ -7,7 +7,7 @@ on:
   schedule:
     # 定时执行，Runs at 17:00 UTC every day
     - cron:  '30 17 * * *'
-
+  workflow_dispatch:
 jobs:
   build:
 
