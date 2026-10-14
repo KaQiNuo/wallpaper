@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +23,7 @@ public class FileUtils {
     private static final Path BING_PATH = Paths.get("bing-wallpaper.md");
 
     /**
-     * 读取 bing-wallpaper.md
+     * 读取 bing-wallpaper.md（主文件仅保存当年记录）
      *
      * @return list
      * @throws IOException exception
@@ -46,7 +47,7 @@ public class FileUtils {
     }
 
     /**
-     * 写入 bing-wallpaper.md
+     * 写入 bing-wallpaper.md（仅写当年记录，按年份拆分归档由月度任务负责）
      *
      * @param imgList imgList
      * @throws IOException IOException
@@ -90,7 +91,7 @@ public class FileUtils {
     }
 
     /**
-     * 写入 README.md
+     * 写入 README.md，仅展示当年图片
      *
      * @param imgList imgList
      * @throws IOException IOException
@@ -99,6 +100,7 @@ public class FileUtils {
         if (!Files.exists(README_PATH)) {
             Files.createFile(README_PATH);
         }
+        String currentYear = String.valueOf(LocalDate.now().getYear());
         Files.write(README_PATH, "## Bing Wallpaper".getBytes());
         Files.write(README_PATH, System.lineSeparator().getBytes(), StandardOpenOption.APPEND);
         Files.write(README_PATH, imgList.get(0).toLarge().getBytes(), StandardOpenOption.APPEND);
@@ -109,6 +111,10 @@ public class FileUtils {
         Files.write(README_PATH, System.lineSeparator().getBytes(), StandardOpenOption.APPEND);
         int i = 1;
         for (Images images : imgList) {
+            // 仅展示当年图片
+            if (images.getDate() == null || !images.getDate().startsWith(currentYear)) {
+                continue;
+            }
             Files.write(README_PATH, ("|" + images.toString()).getBytes(), StandardOpenOption.APPEND);
             if (i % 3 == 0) {
                 Files.write(README_PATH, "|".getBytes(), StandardOpenOption.APPEND);

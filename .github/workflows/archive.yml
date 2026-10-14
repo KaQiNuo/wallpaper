@@ -1,0 +1,38 @@
+# 按年份拆分归档 bing-wallpaper.md 并为每个年度生成展示文件
+# 每月 1 日定时执行（支持手动触发）：往年记录拆分到 archive/bing-wallpaper-YYYY.md，主文件仅保留当年记录，展示文件生成到 showcase/
+name: Archive Bing Wallpaper
+
+on:
+  schedule:
+    # 定时执行，Runs at 00:00 UTC on day-of-month 1
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+    - name: Archive and build showcases
+      run: python scripts/archive_bing_wallpaper.py
+    - name: Commit files
+      run: |
+         git config user.name "github-actions[bot]"
+         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+         git add bing-wallpaper.md
+         git add archive
+         git add showcase
+         git diff --cached --quiet || git commit -m "archive bing-wallpaper.md by year and build showcases"
+    - name: Push changes
+      uses:  ad-m/github-push-action@master
+      with:
+         github_token: ${{ secrets.MY_GIT_TOKEN }}
+         branch: main
