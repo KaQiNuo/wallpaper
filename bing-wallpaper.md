@@ -1,4 +1,6 @@
 ## Bing Wallpaper
+2026-10-27 | [Gray-headed flying fox, Victoria, Australia (© Doug Gimesy/Nature Picture Library)](https://cn.bing.com/th?id=OHR.HangingBat_EN-US7714746725_UHD.jpg) 
+
 2026-10-26 | [Mount Sneffels in the San Juan Mountains near Ridgway, Colorado, United States (© lightphoto/Getty Images)](https://cn.bing.com/th?id=OHR.SneffelsAutumn_EN-CA1700205921_UHD.jpg) 
 
 2026-10-25 | [Royal Portuguese Cabinet of Reading, Rio de Janeiro, Brazil (© Antonio Salaverry/Shutterstock)](https://cn.bing.com/th?id=OHR.PortugueseLibrary_EN-US7519268149_UHD.jpg) 
